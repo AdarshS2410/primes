@@ -1,13 +1,10 @@
 def print_n_primes(n):
     primes = []
-    sieve = [True] * (n * n)  # Initialize the sieve with True values
-    p = 2
+    number = 2
     while len(primes) < n:
-        if sieve[p]:
-            primes.append(p)
-            for i in range(p * p, n * n, p):
-                sieve[i] = False
-        p += 1
+        if all(number % prime != 0 for prime in primes):
+            primes.append(number)
+        number += 1
     return primes
 
 # Example usage
